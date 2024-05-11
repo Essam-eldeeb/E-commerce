@@ -1,0 +1,96 @@
+<div class="login-background" >
+  <!-- <form class="styleform" [formGroup]="registration" (ngSubmit)="signUp()" #form>
+
+    <div class="form-group">
+      <div *ngIf="false" id="emailHelp1" class="form-text text-danger">{{errormessage |json}}</div>
+
+      <label for="exampleInputEmail1"><h3>name</h3></label>
+      <input type="text" #name name="name" class="form-control"   id="exampleInputname1" formControlName="name" >
+      <div *ngIf="registration.get('name')?.errors?.['required']
+      && registration.get('name')?.touched" class=" text-danger"  >this field is required</div>
+      <div *ngIf="registration.get('name')?.errors?.['pattern']
+      && registration.get('name')?.touched" class="alert  alert-danger"  >you must enter more than 3 letters </div>
+      </div>
+    <div class="form-group">
+      <label for="exampleInputEmail2"><h3>Email</h3></label>
+      <input type="email" #email  name="email" class="form-control" id="exampleInputEmail2"  formControlName="Email" >
+      <div id="emailHelp2"  *ngIf="registration.get('Email')?.errors['required'] && registration.get('Email').touched "  class="form-text text-danger">this field is required</div>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1"><h3>Password</h3></label>
+      <input type="password" class="form-control" name="password" id="exampleInputPassword1" #password formControlName="Password">
+      <div *ngIf="registration.get('Password')?.errors?.['required']
+      && registration.get('Password')?.touched" class=" text-danger"  >this field is required</div>
+
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword4"><h3>rePassword</h3></label>
+      <input type="password" #repassword class="form-control" id="repassword"  formControlName="rePassword" >
+      <div *ngIf="registration.get('rePassword')?.errors?.['required']
+      && registration.get('rePassword')?.touched" class=" text-danger"  >this field is required</div>
+
+
+    </div>
+    <button type="submit" class="btn btn-danger">signUp</button>
+  </form> -->
+
+  <form [formGroup]="registrationform" (ngSubmit)="signUp()" class="styleform">
+    <div class="m-auto text-danger">{{errormessage}}</div>
+
+    <div class="form-group">
+      <label for="">full name</label>
+      <input type="text" formControlName="name" class="form-control" />
+    </div>
+
+    <div  *ngIf="registrationform.get('name')?.errors != null && registrationform.get('name')?.touched">
+      <p class="text-danger" *ngIf="registrationform.get('name')?.errors?.['required'] && registrationform.get('name')?.touched" >frist name required</p>
+      <p class="text-danger" *ngIf="registrationform.get('name')?.errors?.['minlength'] && registrationform.get('name')?.touched">frist name must be more 3 letters</p>
+    </div>
+    <div class="form-group">
+      <label for="">email</label>
+      <input type="text" class="form-control" formControlName="email"/>
+    </div>
+    <div>
+      <p  class="text-danger"*ngIf="registrationform.get('email')?.errors?.['required'] && registrationform.get('email')?.touched " >email required</p>
+      <p  class="text-danger"  *ngIf="registrationform.get('email')?.errors?.['email'] && registrationform.get('email')?.touched "  >you must enter email valid</p>
+    </div>
+
+    <div class="form-group">
+      <label for="">password</label>
+      <input type="password" class="form-control" formControlName="password"/>
+    </div>
+    <div>
+      <p  class="text-danger" *ngIf="registrationform.get('password')?.errors?.['minlength'] && registrationform.get('password')?.touched">
+        password not valid
+      </p>
+      <p *ngIf="registrationform.get('password')?.errors?.['required'] && registrationform.get('password')?.touched"  class="text-danger">
+        password required
+      </p>
+    </div>
+    <div class="form-group">
+      <label for="">repassword</label>
+      <input type="password" class="form-control" formControlName="rePassword"/>
+    </div>
+    <div>
+      <p  class="text-danger" *ngIf="registrationform.get('rePassword')?.errors?.['minlength'] && registrationform.get('rePassword')?.touched">
+        repassword not valid
+      </p>
+      <p *ngIf="registrationform.get('rePassword')?.errors?.['required'] && registrationform.get('rePassword')?.touched"  class="text-danger">
+        repassword required
+      </p>
+    </div>
+    <div class="form-group">
+      <label for="phone">phone</label>
+      <input type="number" formControlName="phone" class="form-control">
+    </div>
+    <div>
+      <p class="text-danger" *ngIf="registrationform.get('phone')?.errors?.['required'] && registrationform.get('phone')?.touched">phone number required</p>
+    </div>
+    <button [disabled]="registrationform.invalid" class="btn btn-danger" >submit</button>
+  </form>
+
+
+</div>
+
+
