@@ -37,8 +37,11 @@ details: any;
   // });
 
   addtocart(id:any){
-    this.cart.addtocart(id).subscribe(
-      data=>{console.log(data)}
+    this.cart.addToCart(id).subscribe(
+      (res:any)=>{
+        this.cart.numOfProducts.next(res.numOfCartItems);
+
+        }
     )
   }
 

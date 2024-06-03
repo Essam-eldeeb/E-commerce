@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartService } from '../../services/cart.service';
 
 
 @Component({
@@ -7,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+  numOfProducts = 0
+  constructor(private cartService: CartService) { }
+
+  ngOnInit() {
+    this.cartService.numOfProducts.subscribe({
+      next: (x) => {
+        this.numOfProducts = x
+      }
+    })
+  }
+
 
 }

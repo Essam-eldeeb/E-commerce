@@ -1,33 +1,26 @@
-
- <!-- <div class="images" *ngIf="totalcount==0">
-  <img   src="assets\images\stringutils_isempty_empty_vial.jpg" alt="empty" class="images">
- </div> -->
 <div class="container style">
-  <h4 class="m-50  font">total price : {{totalPrice |currency}} </h4>
-  <h4 class="m-50  font">Number Of Item: {{totalcount }} </h4>
+  <h4 class="m-50 font">total price : {{ totalPrice | currency }} </h4>
+  <h4 class="m-50 font">Number Of Item: {{ totalcount }} </h4>
   <br>
- <button class="btn btn-danger mb-5" (click)="deleteAll()">Clear Items all</button>
+  <button class="btn btn-danger mb-5" (click)="deleteAll()">Clear Items all</button>
 
   <div class="row row-cols-3 row-cols-md-3">
 
-    <div class="col-3 mb-4"  *ngFor="let data of cartproduct.data.products">
+    <div  class="col-3 mb-4" *ngFor="let data of cartproduct">
       <div class="card">
-        <img src={{data.product.imageCover}} class="card-img-top" alt="...">
+        <img [src]="data.product.imageCover" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">{{data.title}}</h5>
-          <p class="card-text">{{data.price |currency}}</p>
+          <h5 class="card-title">{{ data.title }}</h5>
+          <p class="card-text">{{ data.price | currency }}</p>
         </div>
-        <div class="row d-flex justify-content-around ">
-          <button class="btn btn-info w-25" (click)="updateIten(data?.product._id,data.count - 1) ; data.count = data.count-1" >-</button>
-          <div class="text-info">{{data.count}}</div>
-          <button  class="btn btn-info w-25"  (click)="updateIten(data?.product._id,data.count + 1) ; data.count = data.count+1">+</button>
-
-
+        <div class="row d-flex justify-content-around">
+          <button class="btn btn-info w-25" (click)="updateItem(data.product._id, data.count - 1)">-</button>
+          <div class="text-info">{{ data.count }}</div>
+          <button class="btn btn-info w-25" (click)="updateItem(data.product._id, data.count + 1)">+</button>
         </div>
-        <button class="btn btn-danger mt-5" (click)="removeItem(data?.product._id)">Delete</button>
+        <button class="btn btn-danger mt-5" (click)="removeItem(data.product._id)">Delete</button>
       </div>
     </div>
   </div>
 
 </div>
-<br>
