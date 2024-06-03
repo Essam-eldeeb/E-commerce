@@ -10,6 +10,7 @@ export class CartService {
   Token
 
 url='https://ecommerce.routemisr.com/api/v1/cart'
+item:any
   constructor(private cart:MainFunctionsApiService,private http:HttpClient) {
 
     this.Token=localStorage.getItem('token')
@@ -31,10 +32,21 @@ url='https://ecommerce.routemisr.com/api/v1/cart'
 
   }
   addtocart(productId:any){
-    return this.http.post(this.url,productId).subscribe((data)=>{
-      console.log(productId)
-    })
+    return this.http.post(this.url,{productId},this.optionHeader)
+
+  }
+  getcart(){
+    return this.http.get(this.url,this.optionHeader)
 
 
   }
-}
+  updatecount(id:any ,count:any){
+    return this.http.put(`${this.url}/${id}`,count,this.optionHeader)
+  }
+  delete(id:any){
+    return this.http.delete(`${this.url}/${id}`,this.optionHeader)
+  }
+  deleteall(){
+    return this.http.delete(`${this.url}`,this.optionHeader)
+  }
+  }

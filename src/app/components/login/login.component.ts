@@ -23,19 +23,22 @@ constructor(private funLogin:LoginService , private routr:Router){
 }
 login(){
    this.funLogin.login(this.formLogin.value) .pipe(
-    catchError(error => {
-      console.log('An error occurred:', error.error.errors.msg);
-      return( this.error= error.error.errors.msg)
+    catchError(err => {
+      console.log('An error occurred:', err.error.message);
+      // return( this.error= error.error.errors.msg)
+              return(this.error=err.error.message)
     })
   ).subscribe((respons:any)=>{
     if(respons.message=="success"){
        console.log(respons.token)
        localStorage.setItem("token",respons.token)
        this.routr.navigateByUrl('/products')
-
-    }else{
-      this.error
+       this.error=respons
+    }if(!this.error){
+      return this.error=respons.statusText
     }
+    console.log(respons.message)
+
   })
 }
 }

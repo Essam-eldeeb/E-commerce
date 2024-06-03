@@ -15,7 +15,7 @@
       <div id="pass" class="form-text text-warning" *ngIf="formLogin.get('password')?.errors?.['required'] && formLogin.get('password')?.touched" >password required</div>
 
     </div>
-    <button type="submit" class="btn btn-warning" >login</button>
+    <button  [disabled]="formLogin.invalid" type="submit" class="btn btn-warning" >login</button>
 
   </form>
 </div>

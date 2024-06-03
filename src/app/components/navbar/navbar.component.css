@@ -21,6 +21,7 @@
   justify-content: flex-end; /* Align items to the start (left) */
   list-style: none; /* Remove default list styles */
   padding: 0; /* Remove default padding */
+  z-index: 100000;
 }
 .small{
   text-align: center;
