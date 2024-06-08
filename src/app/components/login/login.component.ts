@@ -22,7 +22,7 @@ constructor(private funLogin:LoginService , private routr:Router){
 
 }
 login(){
-   this.funLogin.login(this.formLogin.value) .pipe(
+  return this.funLogin.login(this.formLogin.value).pipe(
     catchError(err => {
       console.log('An error occurred:', err.error.message);
       // return( this.error= error.error.errors.msg)
@@ -32,8 +32,9 @@ login(){
     if(respons.message=="success"){
        console.log(respons.token)
        localStorage.setItem("token",respons.token)
-       this.routr.navigateByUrl('/products')
+       this.routr.navigateByUrl('/home')
        this.error=respons
+       this.funLogin.isUserLogin.next(true)
     }if(!this.error){
       return this.error=respons.statusText
     }

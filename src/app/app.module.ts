@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from './components/cart/cart.component';
 import { ProductdetailsComponent } from './components/productdetails/productdetails.component';
+import { CategoryComponent } from './components/category/category.component';
+import { BrandsComponent } from './components/brands/brands.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,9 @@ import { ProductdetailsComponent } from './components/productdetails/productdeta
     RegistrationComponent,
     ErrorComponent,
     CartComponent,
-    ProductdetailsComponent
+    ProductdetailsComponent,
+    CategoryComponent,
+    BrandsComponent
   ],
   imports: [
     BrowserModule,

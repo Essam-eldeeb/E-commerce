@@ -36,7 +36,8 @@
   </form> -->
 
   <form [formGroup]="registrationform" (ngSubmit)="signUp()" class="styleform">
-    <div class="m-auto text-danger">{{errormessage}}</div>
+    <div class="m-auto text-warning">
+      {{errormessage}}</div>
 
     <div class="form-group">
       <label for="">full name</label>

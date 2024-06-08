@@ -19,28 +19,29 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" routerLink="/home">HOME</a>
+            <a class="nav-link" routerLink="/home" *ngIf="islogin">HOME</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/products">Products</a>
+            <a class="nav-link" routerLink="/products" *ngIf="islogin">Products</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">brands</a>
+            <a class="nav-link"  routerLink="/brands" *ngIf="islogin">brands</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">categories</a>
+            <a class="nav-link" routerLink="/category" *ngIf="islogin">categories</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/regist">registration</a>
+            <a class="nav-link" *ngIf="!islogin" routerLink="/regist">registration</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/login">login</a>
+            <a class="nav-link" *ngIf="!islogin" routerLink="/login">login</a>
+            <a class="nav-link text-danger" *ngIf="islogin" (click)="logout()" routerLink="/login">logout</a>
           </li>
           <li class="nav-item">
             <a class="nav-link">
             </a>
           </li>
-          <li class="nav-item stylecart ">
+          <li class="nav-item stylecart " *ngIf="islogin">
             <div class="small">{{numOfProducts}}</div>
 
             <a class="nav-link" routerLink="/cart" >

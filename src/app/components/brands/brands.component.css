@@ -1,0 +1,15 @@
+.style{
+  margin-top: 150px;
+  margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+}
+.imageStyle
+{
+  width: 100%;
+  height: 200px;
+}

@@ -29,7 +29,7 @@ signUp(){
  this.apiRegistr.create(this.registrationform.value) .pipe(
   catchError(error => {
     console.log('An error occurred:', error.error.errors.msg);
-    return( this.errormessage= error.error.errors)
+    return( this.errormessage= error.error.errors.msg)
   })
 )
 
