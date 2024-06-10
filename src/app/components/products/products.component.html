@@ -18,7 +18,7 @@
 
     <div class="vegetables_section_2 layout_padding">
       <div class="row">
-        <div class="col-3" *ngFor="let data of allproduct" [hidden]="data['id']=='6408da1c6406cd15828e8f0a'" >
+        <div class="col-md-3" *ngFor="let data of allproduct" [hidden]="data['id']=='6408da1c6406cd15828e8f0a'" >
           <div class="box_section">
             <div class="image_4"><a  [routerLink]="['/details',data['id']]"><img class="ImagesfixedSize" src="{{data['imageCover']}}" /></a></div>
             <h2 class="dolor_text">$<span style="color: #ebc30a">{{data['price']}}</span></h2>
